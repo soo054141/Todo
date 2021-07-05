@@ -4,13 +4,15 @@ import TodoItem from "./TodoItem";
 
 const TodoListBox = styled.div``;
 
-function TodoList() {
-    return (
-        <>
-            <TodoListBox>
-                <TodoItem />
-            </TodoListBox>
-        </>
-    );
+function TodoList({ users, onRemove, onToggle }) {
+  return (
+    <>
+      {users.map((user) => (
+        <TodoListBox key={user.id}>
+          <TodoItem user={user} onRemove={onRemove} onToggle={onToggle} />
+        </TodoListBox>
+      ))}
+    </>
+  );
 }
 export default TodoList;
